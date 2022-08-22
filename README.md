@@ -44,3 +44,6 @@ Os usuários do tipo empresa podem se cadastrar na plataforma, também, criar e 
 * **REQ6** - O sistema deve permitir que o usuário do tipo pessoa possa se candidatar a uma vaga disponibilizada.
 
 * **REQ7** - O sistema deve permitir que o usuário do tipo pessoa possa visualizar a atualização de sua candidatura.
+
+* **REQ8** - O sistema deve permitir que o usuário do tipo empresa possa fazer uma consulta de um relatório das candidaturas.
+

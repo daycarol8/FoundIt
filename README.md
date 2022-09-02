@@ -47,3 +47,6 @@ Os usuários do tipo empresa podem se cadastrar na plataforma, também, criar e 
 
 * **REQ8** - O sistema deve permitir que o usuário do tipo empresa possa fazer uma consulta de um relatório das candidaturas.
 
+## UML
+
+![alt text](https://github.com/daycarol8/FoundIt/blob/main/arquivos/UML.jpg?raw=true)

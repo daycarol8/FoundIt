@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class usuario {
+public abstract class usuario {
     private String email;
     private String senha;
 
@@ -10,6 +10,7 @@ public class usuario {
     public usuario(String email, String senha) {
         this.email = email;
         this.senha = senha;
+
     }
 
     public String getEmail() {

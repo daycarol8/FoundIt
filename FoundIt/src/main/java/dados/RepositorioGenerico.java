@@ -1,4 +1,7 @@
 package dados;
+import Exceptions.ElementoJaExisteException;
+import Exceptions.ElementoNaoExisteException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,9 +23,12 @@ public class RepositorioGenerico<T> {
     }
 
 
-    public void inserir(T novoObj){
+    public void inserir(T novoObj) throws ElementoJaExisteException {
         if (!this.elementos.contains(novoObj)) {
             this.elementos.add(novoObj);
+        }
+        else {
+            throw new ElementoJaExisteException(novoObj);
         }
 
         RepositorioFileUtil.salvarArquivo(elementos, this.filename);
@@ -33,19 +39,25 @@ public class RepositorioGenerico<T> {
     }
 
 
-    public void remover(T obj){
+    public void remover(T obj) throws ElementoNaoExisteException {
         if (this.elementos.contains(obj)) {
             this.elementos.remove(this.elementos.indexOf(obj));
+        }
+        else {
+            throw new ElementoNaoExisteException(obj);
         }
 
         RepositorioFileUtil.salvarArquivo(elementos, this.filename);
     }
 
 
-    public void atualizar(T newObj){
+    public void atualizar(T newObj) throws ElementoNaoExisteException{
         if (this.elementos.contains(newObj)) {
             int indice = this.elementos.indexOf(newObj);
             this.elementos.set(indice, newObj);
+        }
+        else {
+            throw new ElementoNaoExisteException(newObj);
         }
 
         RepositorioFileUtil.salvarArquivo(elementos, this.filename);

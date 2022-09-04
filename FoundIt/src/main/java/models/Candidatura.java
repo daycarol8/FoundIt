@@ -1,19 +1,19 @@
 package models;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Candidatura {
 	private LocalDateTime data;
-	private statusCandidatura status;
-	Lista<Pessoa> candidato;
-	Lista<Vaga> vaga;
+	private StatusCandidatura status;
+	private Pessoa candidato;
+	private Vaga vaga;
 	
-	public Candidatura(LocalDateTime data, statusCandidatura status) {
+	public Candidatura(LocalDateTime data, StatusCandidatura status, Vaga vaga, Pessoa candidato) {
 		this.data = data;
 		this.status = status;
-		this.candidato = new ArrayList();
-		this.vaga = new ArrayList();
+		this.candidato = candidato;
+		this.vaga = vaga;
 	}
 
 	public LocalDateTime getData() {
@@ -24,19 +24,32 @@ public class Candidatura {
 		this.data = data;
 	}
 
-	public statusCandidatura getStatus() {
+	public StatusCandidatura getStatus() {
 		return status;
 	}
 
-	public void setStatus(statusCandidatura status) {
+	public void setStatus(StatusCandidatura status) {
 		this.status = status;
 	}
 
-	public Lista<Pessoa> getCandidato() {
+	public Pessoa getCandidato() {
 		return candidato;
 	}
 
-	public Lista<Vaga> getVaga() {
+	public void setCandidato(Pessoa pessoa){this.candidato = pessoa;}
+
+	public Vaga getVaga() {
 		return vaga;
 	}
+
+	public void setVaga(Vaga vaga) {this.vaga = vaga;}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Candidatura that = (Candidatura) o;
+		return Objects.equals(data, that.data) && status == that.status && Objects.equals(candidato, that.candidato) && Objects.equals(vaga, that.vaga);
+	}
+
 }

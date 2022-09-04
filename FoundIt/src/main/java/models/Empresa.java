@@ -1,6 +1,8 @@
 package models;
 
-public class Empresa extends usuario{
+import java.util.Objects;
+
+public class Empresa extends Usuario {
 
     private String nomeSocial;
     private String cnpj;
@@ -66,4 +68,14 @@ public class Empresa extends usuario{
     public void setTamanhoEmpresa(PorteEmpresa tamanhoEmpresa) {
         this.tamanhoEmpresa = tamanhoEmpresa;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Empresa empresa = (Empresa) o;
+        return telefone == empresa.telefone && Objects.equals(nomeSocial, empresa.nomeSocial) && Objects.equals(cnpj, empresa.cnpj) && Objects.equals(endereco, empresa.endereco) && Objects.equals(descricao, empresa.descricao) && tamanhoEmpresa == empresa.tamanhoEmpresa;
+    }
+
 }

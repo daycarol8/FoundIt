@@ -2,8 +2,9 @@ package models;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Pessoa extends usuario {
+public class Pessoa extends Usuario {
     private String nome;
     private long cpf;
     private String resumo;
@@ -77,5 +78,14 @@ public class Pessoa extends usuario {
 
     public void setCurriculo(File curriculo) {
         this.curriculo = curriculo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return cpf == pessoa.cpf && Objects.equals(nome, pessoa.nome) && Objects.equals(resumo, pessoa.resumo) && Objects.equals(endereco, pessoa.endereco) && Objects.equals(telefone, pessoa.telefone) && Objects.equals(dataNascimento, pessoa.dataNascimento) && Objects.equals(curriculo, pessoa.curriculo);
     }
 }

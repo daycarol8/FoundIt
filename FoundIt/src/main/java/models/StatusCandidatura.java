@@ -1,11 +1,11 @@
 package models;
 
-public enum statusCandidatura {
-	ENVIADO("Enviado"), ANALISE("Análise"), ESCOLHIDO("Escolhido");
+public enum StatusCandidatura {
+	ENVIADO("Enviado"), ANALISE("Análise"), ESCOLHIDO("Escolhido"), NAOESCOLHIDO("Não escolhido");
 	
 	private String statuscand;
 	
-	statusCandidatura(String statuscand) {
+	StatusCandidatura(String statuscand) {
 		this.statuscand = statuscand;
 	}
 

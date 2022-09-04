@@ -2,12 +2,12 @@ package models;
 
 import java.util.Objects;
 
-public abstract class usuario {
+public abstract class Usuario {
     private String email;
     private String senha;
 
 
-    public usuario(String email, String senha) {
+    public Usuario(String email, String senha) {
         this.email = email;
         this.senha = senha;
 
@@ -33,7 +33,7 @@ public abstract class usuario {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        usuario usuario = (usuario) o;
+        Usuario usuario = (Usuario) o;
         return Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha);
     }
 

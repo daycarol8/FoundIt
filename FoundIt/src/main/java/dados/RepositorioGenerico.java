@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RepositorioGenerico<T> {
+public class RepositorioGenerico<T> implements IRepositorioGenerico<T>{
 
     protected List<T> elementos;
     private String filename;

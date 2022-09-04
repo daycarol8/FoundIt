@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Tecnologias {
 
     private String nome;
@@ -15,4 +17,13 @@ public class Tecnologias {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tecnologias that = (Tecnologias) o;
+        return Objects.equals(nome, that.nome);
+    }
+
 }

@@ -1,5 +1,6 @@
 package models;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Vaga {
 
@@ -15,13 +16,18 @@ public class Vaga {
 
     private ArrayList<Tecnologias> tags;
 
-    public Vaga(String nivel, String descricao, String local, double salario,TipoContrato contrato) {
+    private Empresa empresa;
+    private StatusVaga statusVaga;
+
+    public Vaga(String nivel, String descricao, String local, double salario, TipoContrato contrato, Empresa empresa) {
         this.nivel = nivel;
         this.descricao = descricao;
         this.local = local;
         this.salario = salario;
         this.tags = new ArrayList<>();
         this.contrato = contrato;
+        this.statusVaga = StatusVaga.ABERTA;
+        this.empresa = empresa;
     }
 
     public String getNivel() {
@@ -72,4 +78,27 @@ public class Vaga {
         this.contrato = contrato;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public StatusVaga getStatusVaga() {
+        return statusVaga;
+    }
+
+    public void setStatusVaga(StatusVaga statusVaga) {
+        this.statusVaga = statusVaga;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vaga vaga = (Vaga) o;
+        return Double.compare(vaga.salario, salario) == 0 && Objects.equals(nivel, vaga.nivel) && Objects.equals(descricao, vaga.descricao) && Objects.equals(local, vaga.local) && contrato == vaga.contrato && Objects.equals(tags, vaga.tags) && Objects.equals(empresa, vaga.empresa) && statusVaga == vaga.statusVaga;
+    }
 }

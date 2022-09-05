@@ -1,9 +1,11 @@
 package models;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Vaga {
+public class Vaga implements Serializable {
 
+    private static final long serialVersionUID = -7096222758333417172L;
     private String nivel;
 
     private String descricao;
@@ -19,12 +21,12 @@ public class Vaga {
     private Empresa empresa;
     private StatusVaga statusVaga;
 
-    public Vaga(String nivel, String descricao, String local, double salario, TipoContrato contrato, Empresa empresa) {
+    public Vaga(String nivel, String descricao, String local, double salario, ArrayList<Tecnologias> tags, TipoContrato contrato, Empresa empresa) {
         this.nivel = nivel;
         this.descricao = descricao;
         this.local = local;
         this.salario = salario;
-        this.tags = new ArrayList<>();
+        this.tags = tags;
         this.contrato = contrato;
         this.statusVaga = StatusVaga.ABERTA;
         this.empresa = empresa;

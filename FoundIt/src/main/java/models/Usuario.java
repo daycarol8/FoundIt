@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
     private String email;
     private String senha;
 

@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Pessoa extends Usuario {
+
+    private static final long serialVersionUID = -7096022758333417172L;
     private String nome;
     private long cpf;
     private String resumo;
@@ -13,7 +15,7 @@ public class Pessoa extends Usuario {
     private LocalDate dataNascimento;
     private File curriculo;
 
-    public Pessoa(String email, String senha, String nome, long cpf, String resumo, String endereco, String telefone, LocalDate dataNascimento, File curriculo) {
+    public Pessoa(String email, String senha, String nome, long cpf, String resumo, String endereco, String telefone, LocalDate dataNascimento) { // File curriculo) {
         super(email, senha);
         this.nome = nome;
         this.cpf = cpf;
@@ -21,7 +23,7 @@ public class Pessoa extends Usuario {
         this.endereco = endereco;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
-        this.curriculo = curriculo;
+        //this.curriculo = curriculo;
     }
 
     public String getNome() {

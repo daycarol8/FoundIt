@@ -11,8 +11,6 @@ public enum PorteEmpresa {
 
     @Override
     public String toString() {
-        return "PorteEmpresa{" +
-                "texto='" + texto + '\'' +
-                '}';
+        return texto;
     }
 }

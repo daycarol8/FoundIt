@@ -38,12 +38,10 @@ public class TelaCadastroEmpresaController implements Initializable {
     private boolean confirmarClicado = false;
     private Empresa empresa;
 
+
     ControladorEmpresa controladorEmpresa = MainLaunch.controlEmpresa;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-//        ArrayList<PorteEmpresa> lista = new ArrayList<>();
-//        lista.addAll(PorteEmpresa.values())
 
         ObservableList<PorteEmpresa> porteLista = FXCollections.observableArrayList();
         EscolhaPorte.setItems(porteLista);

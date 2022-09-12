@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCadastroEmpresaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCadastroEmpresaController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="178.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="194.0" fitWidth="194.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="178.0" fitWidth="180.0" layoutX="1.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@FoundItLogoo.png" />
+                  <Image url="@../../java/imag/FoundItLogoo.png" />
                </image></ImageView>
          </children>
       </AnchorPane>
@@ -19,8 +24,8 @@
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="406.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="LabelDescricao" layoutX="222.0" layoutY="260.0" prefHeight="17.0" prefWidth="78.0" text="Descrição" />
-            <Label fx:id="LabelTelefone" layoutX="222.0" layoutY="80.0" prefHeight="17.0" prefWidth="64.0" text="Telefone" />
+            <Label fx:id="LabelDescricao" layoutX="227.0" layoutY="260.0" prefHeight="17.0" prefWidth="148.0" text="Descrição" AnchorPane.rightAnchor="30.0" />
+            <Label fx:id="LabelTelefone" layoutX="227.0" layoutY="80.0" prefHeight="17.0" prefWidth="148.0" text="Telefone" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="30.0" />
             <Label fx:id="LabelSenha" layoutX="30.0" layoutY="201.0" prefHeight="17.0" prefWidth="64.0" text="Senha" AnchorPane.leftAnchor="30.0" />
             <Label fx:id="LabelEmail" layoutX="30.0" layoutY="141.0" prefHeight="17.0" prefWidth="81.0" text="Email" AnchorPane.leftAnchor="30.0" />
             <TextField fx:id="TextoNome" layoutX="30.0" layoutY="102.0" AnchorPane.leftAnchor="30.0" />
@@ -30,10 +35,10 @@
             <TextField fx:id="TextoCNPJ" layoutY="281.0" AnchorPane.leftAnchor="30.0" />
             <Label fx:id="LabelCNPJ" layoutX="30.0" layoutY="260.0" prefHeight="17.0" prefWidth="61.0" text="CNPJ" AnchorPane.leftAnchor="30.0" />
             <TextField fx:id="TextoTelefone" layoutX="181.0" layoutY="102.0" AnchorPane.rightAnchor="30.0" />
-            <TextField fx:id="TextoEndereco" layoutX="174.66666666666666" layoutY="161.0" AnchorPane.rightAnchor="30.0" />
+            <TextField fx:id="TextoEndereco" layoutX="174.66666666666666" layoutY="161.0" AnchorPane.leftAnchor="226.66666666666666" AnchorPane.rightAnchor="30.0" />
             <TextField fx:id="TextoDescricao" layoutY="281.0" prefHeight="96.0" prefWidth="149.0" AnchorPane.rightAnchor="30.0" />
-            <Label fx:id="LabelEndereco" layoutX="222.0" layoutY="141.0" text="Endereço" />
-            <Label fx:id="LabelPorteEmpresa" layoutX="222.0" layoutY="201.0" prefHeight="17.0" prefWidth="141.0" text="Porte da Empresa" />
+            <Label fx:id="LabelEndereco" layoutX="227.0" layoutY="141.0" prefHeight="17.0" prefWidth="148.0" text="Endereço" AnchorPane.rightAnchor="30.0" />
+            <Label fx:id="LabelPorteEmpresa" layoutX="227.0" layoutY="201.0" prefHeight="17.0" prefWidth="149.0" text="Porte da Empresa" AnchorPane.rightAnchor="30.0" />
             <ChoiceBox fx:id="EscolhaPorte" layoutY="222.0" prefWidth="150.0" AnchorPane.rightAnchor="30.0" />
             <Label fx:id="LabelCadastroEmpresa" layoutX="101.0" layoutY="33.0" prefHeight="35.0" prefWidth="196.0" text="Cadastro Empresa" textAlignment="CENTER">
                <font>

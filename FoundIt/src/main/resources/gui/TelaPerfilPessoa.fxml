@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaPerfilPessoaController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #884DF2;" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="botaoEditar" blendMode="LIGHTEN" mnemonicParsing="false" text="Editar" />
+            <Button fx:id="botaoVoltar" blendMode="LIGHTEN" mnemonicParsing="false" text="Voltar" />
+        </items>
+      </ToolBar>
+   </top>
+   <right>
+      <AnchorPane prefHeight="360.0" prefWidth="224.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="38.0" layoutY="52.0" prefHeight="47.0" prefWidth="143.0" text="Perfil Pessoal" textFill="#884df2">
+               <font>
+                  <Font name="Franklin Gothic Medium Cond" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="212.0" fitWidth="208.0" layoutX="6.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../java/imag/FoundItLogoo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="360.0" prefWidth="315.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutY="15.0" prefHeight="378.0" prefWidth="379.0">
+               <children>
+                  <Label layoutX="30.0" layoutY="85.0" prefHeight="17.0" prefWidth="39.0" text="Email" AnchorPane.leftAnchor="30.0" />
+                  <TextField fx:id="textoEmailPessoaPerfil" layoutX="30.0" layoutY="103.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="103.0" />
+                  <TextField fx:id="textoNomePessoaPerfil" layoutX="30.0" layoutY="44.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="44.0" />
+                  <TextField fx:id="textoSenhaPessoaPerfil" layoutX="30.0" layoutY="164.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="164.0" />
+                  <TextField fx:id="textoCPfPerfil" layoutX="30.0" layoutY="231.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="231.0" />
+                  <TextField fx:id="textoEnderecoPessoaPerfil" layoutX="199.99999999999997" layoutY="103.0" AnchorPane.rightAnchor="30.0" />
+                  <TextField fx:id="textoTelefonePessoaPerfil" layoutX="174.33333333333334" layoutY="95.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="44.0" />
+                  <Label layoutX="30.0" layoutY="27.0" prefHeight="17.0" prefWidth="57.0" text="Nome" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="299.0" AnchorPane.topAnchor="27.0" />
+                  <Label layoutX="208.0" layoutY="77.0" prefHeight="17.0" prefWidth="147.0" text="Telefone" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="27.0" />
+                  <Label layoutX="201.99999999999997" layoutY="86.0" prefHeight="17.0" prefWidth="147.0" text="Endereço" AnchorPane.rightAnchor="30.0" />
+                  <Label layoutX="30.0" layoutY="146.0" prefHeight="17.0" prefWidth="51.0" text="Senha" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="146.0" />
+                  <Label layoutX="208.0" layoutY="207.0" prefHeight="17.0" prefWidth="147.0" text="Data de Nascimento" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="146.0" />
+                  <Label layoutX="208.0" layoutY="272.0" prefHeight="17.0" prefWidth="147.0" text="Resumo" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="212.0" />
+                  <Label layoutX="30.0" layoutY="212.0" text="CPF" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="212.0" />
+                  <TextArea fx:id="textoResumoPerfil" layoutX="201.0" layoutY="231.0" prefHeight="97.0" prefWidth="149.0" />
+                  <TextField fx:id="textoDataNascimentoPerfil" layoutX="201.0" layoutY="164.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

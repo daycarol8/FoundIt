@@ -15,7 +15,7 @@ public class ControladorCandidatura {
 
     private static ControladorCandidatura instance;
 
-    public ControladorCandidatura() {
+    private ControladorCandidatura() {
         this.repositorioCandidatura = new RepositorioGenerico<>("candidaturas.dat");
     }
 

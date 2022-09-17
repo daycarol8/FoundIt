@@ -12,7 +12,7 @@ import java.util.List;
 public class ControladorVaga {
     private IRepositorioGenerico<Vaga> repositorioVaga;
     private static ControladorVaga instance;
-    public ControladorVaga() {
+    private ControladorVaga() {
         this.repositorioVaga = new RepositorioGenerico<>("vagas.dat");
     }
 

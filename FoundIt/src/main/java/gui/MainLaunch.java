@@ -23,8 +23,8 @@ public class MainLaunch extends Application {
         stage.show();
     }
 
-    static ControladorEmpresa controlEmpresa = new ControladorEmpresa();
-    static ControladorPessoa controlPessoa = new ControladorPessoa();
+    static ControladorEmpresa controlEmpresa = ControladorEmpresa.getInstance();
+    static ControladorPessoa controlPessoa = ControladorPessoa.getInstance();
 
     public static void main(String[] args) {
         launch();

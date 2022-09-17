@@ -12,7 +12,7 @@ public class ControladorPessoa {
     private IRepositorioGenerico<Pessoa> repositorioPessoa;
     private static ControladorPessoa instance;
 
-    public ControladorPessoa() {
+    private ControladorPessoa() {
         this.repositorioPessoa = new RepositorioGenerico<>("usuarios.dat");
     }
 

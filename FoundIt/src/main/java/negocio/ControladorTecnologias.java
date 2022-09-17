@@ -13,7 +13,7 @@ public class ControladorTecnologias {
 
     private static ControladorTecnologias instance;
 
-    public ControladorTecnologias() {
+    private ControladorTecnologias() {
         this.repositorioTecnologias = new RepositorioGenerico<>("tecnologias.dat");
     }
 

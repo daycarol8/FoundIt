@@ -1,19 +1,20 @@
 package negocio;
 
+import models.Empresa;
 import models.Usuario;
 
 public class ControladorSessao {
 
     private Usuario usuarioLogado;
-    private static ControladorCandidatura instance;
+    private static ControladorSessao instance;
 
     public ControladorSessao() {
         usuarioLogado = null;
     }
 
-    public static ControladorCandidatura getInstance() {
+    private static ControladorSessao getInstance() {
         if (instance == null) {
-            instance = new ControladorCandidatura();
+            instance = new ControladorSessao();
         }
         return instance;
     }
@@ -28,5 +29,13 @@ public class ControladorSessao {
 
     public void setUsuarioLogado(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
+    }
+
+    public String getTipoUsuario(){
+        if(getUsuarioLogado() instanceof Empresa){
+            return "empresa";
+        } else{
+            return "pessoa";
+        }
     }
 }

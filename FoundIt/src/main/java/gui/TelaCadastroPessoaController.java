@@ -1,7 +1,6 @@
 package gui;
 
 import Exceptions.ElementoJaExisteException;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.Empresa;
 import models.Pessoa;
-import models.PorteEmpresa;
 import negocio.ControladorPessoa;
 
 import java.io.IOException;
@@ -23,16 +20,16 @@ import java.util.ResourceBundle;
 
 public class TelaCadastroPessoaController implements Initializable {
 
-    @FXML private TextField TextoNomePessoa;
-    @FXML private TextField TextoEmailPessoa;
-    @FXML private TextField TextoSenhaPessoa;
-    @FXML private TextField TextoTelefonePessoa;
-    @FXML private TextField TextoCPf;
-    @FXML private TextField TextoEnderecoPessoa;
-    @FXML private TextField TextoResumo;
+    @FXML private TextField textoNomePessoa;
+    @FXML private TextField textoEmailPessoa;
+    @FXML private TextField textoSenhaPessoa;
+    @FXML private TextField textoTelefonePessoa;
+    @FXML private TextField textoCPf;
+    @FXML private TextField textoEnderecoPessoa;
+    @FXML private TextField textoResumo;
     @FXML private DatePicker pickDataNascimento;
-    @FXML private Button BotaoCadastrarPessoa;
-    @FXML private Button BotaoCancelarPessoa;
+    @FXML private Button botaoCadastrarPessoa;
+    @FXML private Button botaoCancelarPessoa;
 
     private Stage dialogStage;
     private boolean confirmarClicado = false;
@@ -59,19 +56,19 @@ public class TelaCadastroPessoaController implements Initializable {
     private boolean validarDados() {
         String erro = "";
 
-        if(TextoNomePessoa.getText() == null || TextoNomePessoa.getText().length() == 0)
+        if(textoNomePessoa.getText() == null || textoNomePessoa.getText().length() == 0)
             erro += "Nome Inválido!\n";
-        if(TextoEmailPessoa.getText() == null || TextoEmailPessoa.getText().length() == 0)
+        if(textoEmailPessoa.getText() == null || textoEmailPessoa.getText().length() == 0)
             erro += "Email Inválido!\n";
-        if(TextoSenhaPessoa.getText() == null || TextoSenhaPessoa.getText().length() == 0)
+        if(textoSenhaPessoa.getText() == null || textoSenhaPessoa.getText().length() == 0)
             erro += "Senha Inválida\n";
-        if(TextoTelefonePessoa.getText() == null || TextoTelefonePessoa.getText().length() == 0 )
+        if(textoTelefonePessoa.getText() == null || textoTelefonePessoa.getText().length() == 0 )
             erro += "Telefone Inválido!\n";
-        if(TextoCPf.getText() == null || TextoCPf.getText().length() == 0 || !soContemDigitos(TextoCPf.getText()))
+        if(textoCPf.getText() == null || textoCPf.getText().length() == 0 || !soContemDigitos(textoCPf.getText()))
             erro += "CPF Inválido!\n";
-        if(TextoEnderecoPessoa.getText() == null || TextoEnderecoPessoa.getText().length() == 0)
+        if(textoEnderecoPessoa.getText() == null || textoEnderecoPessoa.getText().length() == 0)
             erro += "Endereço Inválido!\n";
-        if(TextoResumo.getText() == null || TextoResumo.getText().length() == 0)
+        if(textoResumo.getText() == null || textoResumo.getText().length() == 0)
             erro += "Resumo Inválido!\n";
         if(pickDataNascimento.getValue() == null)
             erro += "Data inválida!\n";
@@ -94,14 +91,14 @@ public class TelaCadastroPessoaController implements Initializable {
 
         if(validarDados()) {
 
-            String nomePessoa = TextoNomePessoa.getText();
-            String emailPessoa = TextoEmailPessoa.getText();
-            String senhaPessoa = TextoSenhaPessoa.getText();
-            long cpfPessoa = (long) Integer.parseInt(TextoCPf.getText());
-            String enderecoPessoa = TextoEnderecoPessoa.getText();
-            String resumoPessoa = TextoResumo.getText();
+            String nomePessoa = textoNomePessoa.getText();
+            String emailPessoa = textoEmailPessoa.getText();
+            String senhaPessoa = textoSenhaPessoa.getText();
+            long cpfPessoa = (long) Integer.parseInt(textoCPf.getText());
+            String enderecoPessoa = textoEnderecoPessoa.getText();
+            String resumoPessoa = textoResumo.getText();
             LocalDate dataNascimentoPess = pickDataNascimento.getValue();
-            String telefonePessoa = TextoTelefonePessoa.getText();
+            String telefonePessoa = textoTelefonePessoa.getText();
 
             //System.out.println(empresa);
 
@@ -134,13 +131,13 @@ public class TelaCadastroPessoaController implements Initializable {
         }
     }
 
-    public void getDate(ActionEvent e) {
-        LocalDate data = pickDataNascimento.getValue();
-    }
+//    public void getDate(ActionEvent e) {
+//        LocalDate data = pickDataNascimento.getValue();
+//    }
 
     @FXML
     public void mudarTelaTeste(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaCadastroEmpresa.fxml"));
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPerfilPessoa.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -149,15 +146,15 @@ public class TelaCadastroPessoaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        LocalDate data = pickDataNascimento.getValue();
     }
 
     public TextField getTextoNomePessoa() {
-        return TextoNomePessoa;
+        return textoNomePessoa;
     }
 
     public void setTextoNomePessoa(TextField textoNomePessoa) {
-        TextoNomePessoa = textoNomePessoa;
+        this.textoNomePessoa = textoNomePessoa;
     }
 
     public Stage getDialogStage() {

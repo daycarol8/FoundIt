@@ -5,15 +5,20 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import models.*;
 import negocio.ControladorVaga;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -46,11 +51,20 @@ public class TelaListaVagasController implements Initializable {
     ObservableList<Vaga> vagas = FXCollections.observableArrayList();
 
     @FXML
-    public void handleClick(MouseEvent event){
+    public void handleClick(MouseEvent event) throws IOException {
         if (event.getClickCount() == 2) {
             TableView.TableViewSelectionModel<Vaga> p = vagasTable.getSelectionModel();
             controladorVaga.setSelectedVaga(p.getSelectedItem());
             System.out.println(controladorVaga.getSelectedVaga());
+
+            Stage stage;
+            Parent root;
+
+            stage = (Stage) vagasTable.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("TelaVisualizarVaga.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
@@ -59,7 +73,6 @@ public class TelaListaVagasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         vagas.addAll(controladorVaga.listarVagasAtivas());
         System.out.println(vagas);
       //  vagasTable.setItems(vagas);

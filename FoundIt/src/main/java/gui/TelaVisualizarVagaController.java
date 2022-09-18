@@ -51,6 +51,9 @@ public class TelaVisualizarVagaController implements Initializable {
     private Tab botaoInfEmpresa;
 
     @FXML
+    private Tab botaoInfLocal;
+
+    @FXML
     private Tab botaoInfNivel;
 
     @FXML
@@ -68,17 +71,21 @@ public class TelaVisualizarVagaController implements Initializable {
     @FXML
     private Label statusVaga;
 
+    @FXML
+    private Label tituloVaga;
+
     ControladorCandidatura controladorCandidatura = ControladorCandidatura.getInstance();
+    ControladorVaga controladorVaga = ControladorVaga.getInstance();
 
     ArrayList<Tecnologias> tec = new ArrayList<>();
     Empresa e1 = new Empresa("google@gmail.com", "senha123", "Google", "12.345.678/0001-90", 88276597, "Rua Cristovão Colombo", "Empresa com anos de experiência no mercado :)", PorteEmpresa.GRANDE);
-    Vaga v1 = new Vaga("Sênior", "Vaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalharVaga para trabalhar em um projeto Vaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projetoVaga para trabalhar em um projeto", "Recife-PE", 7002, tec, TipoContrato.SERVICO, e1);
-    Pessoa p1 = new Pessoa("camilealheiro@gmail.com", "camile123", "Camile Alheiro", 123456789,
-               "Desenvolvedora Júnior", "Olinda, Rio Doce, 534", "81 94002-8922", LocalDate.of(2003, 3, 12));
+    Vaga v1 = controladorVaga.getSelectedVaga();
+    Pessoa p1 = new Pessoa("camilealheiro@gmail.com", "camile123", "Camile Alheiro", 123456789,"Desenvolvedora Júnior", "Olinda, Rio Doce, 534", "81 94002-8922", LocalDate.of(2003, 3, 12));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         statusVaga.setText("Status - " + v1.getStatusVaga().toString());
+        tituloVaga.setText(v1.getTitulo());
 
         descricaoTeste.setText(v1.getDescricao());
         descricaoTeste.setEditable(false);
@@ -101,6 +108,9 @@ public class TelaVisualizarVagaController implements Initializable {
         areaInfContrato.setText("Tipo de contrato: " + v1.getContrato().toString());
         areaInfContrato.setEditable(false);
 
+        System.out.println("ja candidato?");
+        System.out.println(controladorCandidatura.verificarPessoaJaCandidata(v1,p1));
+        System.out.println(controladorCandidatura.listarCandidaturasPorVaga(v1));
         if(controladorCandidatura.verificarPessoaJaCandidata(v1, p1) == true) {
             botaoQueroCandidatar.setDisable(true);
         }
@@ -128,7 +138,7 @@ public class TelaVisualizarVagaController implements Initializable {
         Parent root;
 
         stage = (Stage) botaoVoltar.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("TelaCadastroEmpresa.fxml"));
+        root = FXMLLoader.load(getClass().getResource("TelaListaVagas.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

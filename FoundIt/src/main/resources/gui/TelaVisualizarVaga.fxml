@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: 884DF2;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaVisualizarVagaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaVisualizarVagaController">
    <children>
-      <TabPane layoutY="294.0" prefHeight="105.0" prefWidth="600.0" style="-fx-background-color: 884DF2;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="294.0" prefHeight="105.0" prefWidth="600.0" style="-fx-background-color: #884DF2;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab fx:id="botaoInfEmpresa" text="Empresa">
                <content>
@@ -26,7 +26,7 @@
                      </children></AnchorPane>
                </content>
             </Tab>
-          <Tab fx:id="botaoInfEmpresa" text="Local">
+          <Tab fx:id="botaoInfLocal" text="Local">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="94.0" prefWidth="594.0">
                      <children>
@@ -72,7 +72,8 @@
          </items>
       </ToolBar>
       <Button fx:id="botaoQueroCandidatar" layoutX="229.0" layoutY="258.0" mnemonicParsing="false" onAction="#candidatarVaga" text="Quero me candidatar :D" />
-      <Label fx:id="statusVaga" layoutX="255.0" layoutY="97.0" text="Label" />
+      <Label fx:id="statusVaga" layoutX="365.0" layoutY="97.0" text="Label" />
       <TextArea fx:id="descricaoTeste" layoutX="115.0" layoutY="121.0" prefHeight="130.0" prefWidth="398.0" />
+      <Label fx:id="tituloVaga" layoutX="175.0" layoutY="97.0" text="Label" />
    </children>
 </AnchorPane>

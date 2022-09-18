@@ -50,12 +50,13 @@ public class MainLaunch extends Application {
         tec2.add(t2);
         tec2.add(t3);
 
-        Vaga v1 = new Vaga("Senior","aaaa", "Vaga para trabalhar em um projeto", "Recife-PE", 7002, tec, TipoContrato.SERVICO, e1);
-        Vaga v2 = new Vaga("Pleno", "bbbb","Vaga para trabalhar por 8 meses", "Salvador-BA", 5000, tec2, TipoContrato.ESTAGIO, e2);
+        Vaga v1 = new Vaga("Senior","Vaga Senior Java e Python", "Vaga para trabalhar em um projeto", "Recife-PE", 7002, tec, TipoContrato.SERVICO, e1);
+        Vaga v2 = new Vaga("Pleno", "Vaga Pleno C","Vaga para trabalhar por 8 meses", "Salvador-BA", 5000, tec2, TipoContrato.ESTAGIO, e2);
 
         Candidatura c1 = new Candidatura(LocalDateTime.of(2022, 10, 22, 19, 0), StatusCandidatura.ENVIADO, v1, p1);
         Candidatura c2 = new Candidatura(LocalDateTime.of(2022, 11, 10, 20, 0), StatusCandidatura.ENVIADO, v2, p1);
-
+//        controladorVaga.inserir(v1);
+//        controladorVaga.inserir(v2);
         System.out.println(controladorVaga.listarVagasAtivas());
         launch();
     }

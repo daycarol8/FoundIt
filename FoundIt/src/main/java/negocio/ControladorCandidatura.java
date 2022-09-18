@@ -34,8 +34,10 @@ public class ControladorCandidatura {
     }
 
     public boolean verificarPessoaJaCandidata (Vaga vaga, Pessoa pessoa) {
+        System.out.println(pessoa);
         for(Candidatura temp : listarCandidaturasPorVaga(vaga)) {
-            if(temp.getCandidato() == pessoa) {
+
+            if(temp.getCandidato().equals(pessoa)) {
                 return true;
             }
         }

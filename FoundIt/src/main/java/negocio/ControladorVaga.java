@@ -12,6 +12,8 @@ import java.util.List;
 public class ControladorVaga {
     private IRepositorioGenerico<Vaga> repositorioVaga;
     private static ControladorVaga instance;
+
+    private Vaga selectedVaga;
     private ControladorVaga() {
         this.repositorioVaga = new RepositorioGenerico<>("vagas.dat");
     }
@@ -43,6 +45,14 @@ public class ControladorVaga {
         }
 
         return lista;
+    }
+
+    public Vaga getSelectedVaga(){
+        return this.selectedVaga;
+    }
+
+    public void setSelectedVaga(Vaga vaga){
+        this.selectedVaga = vaga;
     }
 
     public void inserir(Vaga obj) throws ElementoJaExisteException {

@@ -4,5 +4,6 @@ module com.foundit {
 
 
     opens gui to javafx.fxml;
+    opens models to javafx.base;
     exports gui;
 }

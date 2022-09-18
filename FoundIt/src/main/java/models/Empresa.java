@@ -78,4 +78,8 @@ public class Empresa extends Usuario {
         return telefone == empresa.telefone && Objects.equals(nomeSocial, empresa.nomeSocial) && Objects.equals(cnpj, empresa.cnpj) && Objects.equals(endereco, empresa.endereco) && Objects.equals(descricao, empresa.descricao) && tamanhoEmpresa == empresa.tamanhoEmpresa;
     }
 
+    @Override
+    public String toString() {
+        return nomeSocial;
+    }
 }

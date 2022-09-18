@@ -8,6 +8,8 @@ public class Vaga implements Serializable {
     private static final long serialVersionUID = -7096222758333417172L;
     private String nivel;
 
+    private String titulo;
+
     private String descricao;
 
     private String local;
@@ -21,8 +23,9 @@ public class Vaga implements Serializable {
     private Empresa empresa;
     private StatusVaga statusVaga;
 
-    public Vaga(String nivel, String descricao, String local, double salario, ArrayList<Tecnologias> tags, TipoContrato contrato, Empresa empresa) {
+    public Vaga(String nivel, String titulo, String descricao, String local, double salario, ArrayList<Tecnologias> tags, TipoContrato contrato, Empresa empresa) {
         this.nivel = nivel;
+        this.titulo = titulo;
         this.descricao = descricao;
         this.local = local;
         this.salario = salario;
@@ -95,6 +98,14 @@ public class Vaga implements Serializable {
     public void setStatusVaga(StatusVaga statusVaga) {
         this.statusVaga = statusVaga;
     }
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -102,5 +113,20 @@ public class Vaga implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Vaga vaga = (Vaga) o;
         return Double.compare(vaga.salario, salario) == 0 && Objects.equals(nivel, vaga.nivel) && Objects.equals(descricao, vaga.descricao) && Objects.equals(local, vaga.local) && contrato == vaga.contrato && Objects.equals(tags, vaga.tags) && Objects.equals(empresa, vaga.empresa) && statusVaga == vaga.statusVaga;
+    }
+
+    @Override
+    public String toString() {
+        return "Vaga{" +
+                "nivel='" + nivel + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", local='" + local + '\'' +
+                ", contrato=" + contrato +
+                ", salario=" + salario +
+                ", tags=" + tags +
+                ", empresa=" + empresa +
+                ", statusVaga=" + statusVaga +
+                '}';
     }
 }

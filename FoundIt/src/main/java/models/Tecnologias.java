@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Tecnologias {
+public class Tecnologias implements Serializable {
 
     private String nome;
 
@@ -26,4 +27,8 @@ public class Tecnologias {
         return Objects.equals(nome, that.nome);
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

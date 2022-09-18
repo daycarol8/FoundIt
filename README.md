@@ -50,3 +50,6 @@ Os usuários do tipo empresa podem se cadastrar na plataforma, também, criar e 
 ## UML
 
 ![alt text](https://github.com/daycarol8/FoundIt/blob/main/arquivos/UML.jpg?raw=true)
+
+## Protótipo
+-> https://www.youtube.com/watch?v=HOro1ug7w5s

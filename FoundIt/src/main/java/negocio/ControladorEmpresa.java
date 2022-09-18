@@ -13,7 +13,7 @@ public class ControladorEmpresa {
 
     private static ControladorEmpresa instance;
 
-    public ControladorEmpresa() {
+    private ControladorEmpresa() {
         this.repositorioEmpresa = new RepositorioGenerico<>("empresas.dat");
     }
 

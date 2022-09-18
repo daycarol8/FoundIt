@@ -15,7 +15,7 @@ public class ControladorCandidatura {
 
     private static ControladorCandidatura instance;
 
-    public ControladorCandidatura() {
+    private ControladorCandidatura() {
         this.repositorioCandidatura = new RepositorioGenerico<>("candidaturas.dat");
     }
 
@@ -34,8 +34,10 @@ public class ControladorCandidatura {
     }
 
     public boolean verificarPessoaJaCandidata (Vaga vaga, Pessoa pessoa) {
+        System.out.println(pessoa);
         for(Candidatura temp : listarCandidaturasPorVaga(vaga)) {
-            if(temp.getCandidato() == pessoa) {
+
+            if(temp.getCandidato().equals(pessoa)) {
                 return true;
             }
         }

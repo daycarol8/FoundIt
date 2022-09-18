@@ -55,4 +55,11 @@ public class Candidatura implements Serializable {
 		return Objects.equals(data, that.data) && status == that.status && Objects.equals(candidato, that.candidato) && Objects.equals(vaga, that.vaga);
 	}
 
+	@Override
+	public String toString() {
+		return "Candidatura{" +
+				"candidato=" + candidato +
+				", vaga=" + vaga +
+				'}';
+	}
 }

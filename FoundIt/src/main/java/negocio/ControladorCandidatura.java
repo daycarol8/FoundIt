@@ -33,6 +33,16 @@ public class ControladorCandidatura {
         repositorioCandidatura.inserir(novaCandidatura);
     }
 
+    public boolean verificarPessoaJaCandidata (Vaga vaga, Pessoa pessoa) {
+        for(Candidatura temp : listarCandidaturasPorVaga(vaga)) {
+            if(temp.getCandidato() == pessoa) {
+                return true;
+            }
+        }
+        //pegar a lista de candidatos do repositorio e verificar se é igual a pessoa e a vaga
+        return false;
+    }
+
     public List<Candidatura> listarCandidaturasDoUsuario(Pessoa pessoa){
         List<Candidatura> lista = new ArrayList<>();
 

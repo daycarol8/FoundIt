@@ -12,6 +12,6 @@ public enum TipoContrato {
 
     @Override
     public String toString() {
-        return  contrato;
+        return contrato;
     }
 }

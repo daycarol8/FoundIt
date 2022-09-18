@@ -11,6 +11,6 @@ public enum StatusVaga {
 
     @Override
     public String toString() {
-        return "statusVaga{" + "Status da Vaga ='" + statusVaga + '\'' + '}';
+        return statusVaga;
     }
 }

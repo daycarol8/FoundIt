@@ -1,9 +1,12 @@
 package models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Candidatura {
+public class Candidatura implements Serializable {
+
+	private static final long serialVersionUID = -7096022758333417172L;
 	private LocalDateTime data;
 	private StatusCandidatura status;
 	private Pessoa candidato;

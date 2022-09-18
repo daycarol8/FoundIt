@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import negocio.ControladorEmpresa;
 import negocio.ControladorPessoa;
+import negocio.ControladorVaga;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ public class MainLaunch extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaCadastroPessoa.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaVisualizarVaga.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
 
@@ -25,6 +26,7 @@ public class MainLaunch extends Application {
 
     static ControladorEmpresa controlEmpresa = new ControladorEmpresa();
     static ControladorPessoa controlPessoa = new ControladorPessoa();
+
 
     public static void main(String[] args) {
         launch();

@@ -103,4 +103,5 @@ public class Vaga implements Serializable {
         Vaga vaga = (Vaga) o;
         return Double.compare(vaga.salario, salario) == 0 && Objects.equals(nivel, vaga.nivel) && Objects.equals(descricao, vaga.descricao) && Objects.equals(local, vaga.local) && contrato == vaga.contrato && Objects.equals(tags, vaga.tags) && Objects.equals(empresa, vaga.empresa) && statusVaga == vaga.statusVaga;
     }
+
 }

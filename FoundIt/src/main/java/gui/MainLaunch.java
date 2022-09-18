@@ -15,7 +15,6 @@ public class MainLaunch extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaVisualizarVaga.fxml"));
-
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setScene(scene);
@@ -24,8 +23,8 @@ public class MainLaunch extends Application {
         stage.show();
     }
 
-    static ControladorEmpresa controlEmpresa = new ControladorEmpresa();
-    static ControladorPessoa controlPessoa = new ControladorPessoa();
+    static ControladorEmpresa controlEmpresa = ControladorEmpresa.getInstance();
+    static ControladorPessoa controlPessoa = ControladorPessoa.getInstance();
 
 
     public static void main(String[] args) {

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaLoginController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="buttonCadastrarEmpresa" layoutX="403.0" layoutY="307.0" onMouseClicked="#cadastrarEmpresa" text="Cadastro Empresa" textFill="#000dff">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="405.0" layoutY="76.0" prefHeight="52.0" prefWidth="63.0" text="Login">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="inputSenha" layoutX="376.0" layoutY="222.0" />
+            <TextField fx:id="inputEmail" layoutX="376.0" layoutY="164.0" />
+            <AnchorPane prefHeight="400.0" prefWidth="309.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="174.0" fitWidth="186.0" layoutX="59.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../java/imag/FoundItLogoo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label layoutX="376.0" layoutY="143.0" text="Email" />
+            <Label layoutX="376.0" layoutY="200.0" text="Senha" />
+            <Label fx:id="buttonCadastraPessoa" layoutX="407.0" layoutY="324.0" onMouseClicked="#cadastrarPessoa" text="Cadastro Pessoa" textFill="#4533ff">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Button fx:id="buttonLogin" layoutX="428.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#realizarLogin" text="Login" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

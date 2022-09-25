@@ -30,7 +30,7 @@
             </Label>
             <ImageView fitHeight="212.0" fitWidth="208.0" layoutX="6.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../java/imag/FoundItLogoo.png" />
+                  <Image url="@../imagens/FoundItLogoo.png" />
                </image>
             </ImageView>
          </children>

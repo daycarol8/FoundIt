@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="178.0" fitWidth="180.0" layoutX="1.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../java/imag/FoundItLogoo.png" />
+                  <Image url="@../imagens/FoundItLogoo.png" />
                </image></ImageView>
          </children>
       </AnchorPane>

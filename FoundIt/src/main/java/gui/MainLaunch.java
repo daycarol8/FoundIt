@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import models.*;
 import negocio.ControladorEmpresa;
 import negocio.ControladorPessoa;
+import negocio.ControladorUsuario;
 import negocio.ControladorVaga;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class MainLaunch extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaListaVagas.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaLogin.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
 
@@ -33,6 +34,7 @@ public class MainLaunch extends Application {
     static ControladorPessoa controlPessoa = ControladorPessoa.getInstance();
 
     static ControladorVaga controladorVaga = ControladorVaga.getInstance();
+    static ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
 
     public static void main(String[] args) throws ElementoJaExisteException {
         Pessoa p1 = new Pessoa("camilealheiro@gmail.com", "camile123", "Camile Alheiro", 123456789, "Desenvolvedora Júnior", "Olinda, Rio Doce, 534", "81 94002-8922", LocalDate.of(2003, 3, 12));
@@ -57,6 +59,10 @@ public class MainLaunch extends Application {
         Candidatura c2 = new Candidatura(LocalDateTime.of(2022, 11, 10, 20, 0), StatusCandidatura.ENVIADO, v2, p1);
 //        controladorVaga.inserir(v1);
 //        controladorVaga.inserir(v2);
+
+        //controladorUsuario.inserir(p1);
+        //controladorUsuario.inserir(e2);
+
         System.out.println(controladorVaga.listarVagasAtivas());
         launch();
     }

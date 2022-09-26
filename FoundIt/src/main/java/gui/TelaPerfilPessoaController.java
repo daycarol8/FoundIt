@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Pessoa;
+import negocio.ControladorUsuario;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +32,7 @@ public class TelaPerfilPessoaController implements Initializable {
 
     Pessoa pessoa = new Pessoa("pessoa@gmail.com", "12345", "Pessoa Sobrenome", 1234567, "Procuro emprego", "Alguma rua do Brasil", "345234", LocalDate.of(2000, 5, 13));
 
-    ControladorPessoa controlPerfil = MainLaunch.controlPessoa;
+    ControladorUsuario controlPerfil = ControladorUsuario.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

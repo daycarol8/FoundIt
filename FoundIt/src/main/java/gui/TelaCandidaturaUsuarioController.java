@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 public class TelaCandidaturaUsuarioController implements Initializable {
 
-@FXML private Button btnVoltar;
+    @FXML private Button btnVoltar;
 
     @FXML
     private TableColumn<Candidatura, Vaga> vaga;
@@ -37,9 +37,6 @@ public class TelaCandidaturaUsuarioController implements Initializable {
 
     @FXML
     private TableColumn<Candidatura, LocalDateTime> data;
-
-    @FXML
-    private TableColumn<Candidatura, Pessoa> candidato;
 
     @FXML
     private TableView<Candidatura> table;
@@ -54,7 +51,7 @@ public class TelaCandidaturaUsuarioController implements Initializable {
 
 
     @FXML void voltar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaListaVagas.fxml"));
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPerfilPessoa.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -69,7 +66,6 @@ public class TelaCandidaturaUsuarioController implements Initializable {
         vaga.setCellValueFactory(new PropertyValueFactory<>("vaga"));
         data.setCellValueFactory(new PropertyValueFactory<>("data"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
-        candidato.setCellValueFactory(new PropertyValueFactory<>("candidato"));
 
         table.setItems(candidaturas);
 

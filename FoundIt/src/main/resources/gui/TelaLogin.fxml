@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaLoginController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -30,9 +29,9 @@
             <TextField fx:id="inputEmail" layoutX="376.0" layoutY="164.0" />
             <AnchorPane prefHeight="400.0" prefWidth="309.0" style="-fx-background-color: white;">
                <children>
-                  <ImageView fitHeight="174.0" fitWidth="186.0" layoutX="59.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="266.0" fitWidth="292.0" layoutX="22.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../java/imag/FoundItLogoo.png" />
+                        <Image url="@../imagens/FoundItLogoo.png" />
                      </image>
                   </ImageView>
                </children>

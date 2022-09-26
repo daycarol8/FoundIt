@@ -28,7 +28,7 @@ public class ControladorCandidatura {
 
     public void candidatarVaga(Pessoa usuario, Vaga vaga) throws ElementoJaExisteException {
         LocalDateTime now = LocalDateTime.now();
-        Candidatura novaCandidatura = new Candidatura(now, StatusCandidatura.ANALISE, vaga, usuario);
+        Candidatura novaCandidatura = new Candidatura(now, StatusCandidatura.ENVIADO, vaga, usuario);
 
         repositorioCandidatura.inserir(novaCandidatura);
     }
@@ -93,7 +93,7 @@ public class ControladorCandidatura {
         repositorioCandidatura.remover(obj);
     }
 
-    public void atualizar(Candidatura newObj) throws ElementoNaoExisteException {
-        repositorioCandidatura.atualizar(newObj);
+    public void atualizar(Candidatura oldObj,Candidatura newObj) throws ElementoNaoExisteException {
+        repositorioCandidatura.atualizar(oldObj, newObj);
     }
 }

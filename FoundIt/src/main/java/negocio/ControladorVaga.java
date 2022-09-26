@@ -67,7 +67,7 @@ public class ControladorVaga {
         repositorioVaga.remover(obj);
     }
 
-    public void atualizar(Vaga newObj) throws ElementoNaoExisteException {
-        repositorioVaga.atualizar(newObj);
+    public void atualizar(Vaga oldObj, Vaga newObj) throws ElementoNaoExisteException {
+        repositorioVaga.atualizar(oldObj, newObj);
     }
 }

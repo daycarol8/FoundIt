@@ -11,7 +11,7 @@ public enum StatusCandidatura {
 
 	@Override
 	public String toString() {
-	return "statusCandidatura{" + "Status da Candidatura ='" + statuscand + '\'' + '}';
+	return statuscand;
 	}
 	
 }

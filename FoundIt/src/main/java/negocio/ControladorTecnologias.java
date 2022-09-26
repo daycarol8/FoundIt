@@ -36,7 +36,7 @@ public class ControladorTecnologias {
         repositorioTecnologias.remover(obj);
     }
 
-    public void atualizar(Candidatura newObj) throws ElementoNaoExisteException {
-        repositorioTecnologias.atualizar(newObj);
+    public void atualizar(Candidatura oldObj, Candidatura newObj) throws ElementoNaoExisteException {
+        repositorioTecnologias.atualizar(oldObj, newObj);
     }
 }

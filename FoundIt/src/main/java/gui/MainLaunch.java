@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import models.*;
-import negocio.ControladorEmpresa;
-import negocio.ControladorPessoa;
-import negocio.ControladorUsuario;
-import negocio.ControladorVaga;
+import negocio.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -25,16 +22,13 @@ public class MainLaunch extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setScene(scene);
-        stage.setTitle("Lista de vagas");
+        stage.setTitle("Login");
         stage.setResizable(false);
         stage.show();
     }
-
-    static ControladorEmpresa controlEmpresa = ControladorEmpresa.getInstance();
-    static ControladorPessoa controlPessoa = ControladorPessoa.getInstance();
-
     static ControladorVaga controladorVaga = ControladorVaga.getInstance();
     static ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
+    static ControladorSessao controladorSessao = ControladorSessao.getInstance();
 
     public static void main(String[] args) throws ElementoJaExisteException {
         Pessoa p1 = new Pessoa("camilealheiro@gmail.com", "camile123", "Camile Alheiro", 123456789, "Desenvolvedora Júnior", "Olinda, Rio Doce, 534", "81 94002-8922", LocalDate.of(2003, 3, 12));
@@ -62,7 +56,9 @@ public class MainLaunch extends Application {
 
         //controladorUsuario.inserir(p1);
         //controladorUsuario.inserir(e2);
+        //controladorUsuario.inserir(p2);
 
+        controladorSessao.setUsuarioLogado(e1);
         System.out.println(controladorVaga.listarVagasAtivas());
         launch();
     }

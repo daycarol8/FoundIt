@@ -117,16 +117,6 @@ public class Vaga implements Serializable {
 
     @Override
     public String toString() {
-        return "Vaga{" +
-                "nivel='" + nivel + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", local='" + local + '\'' +
-                ", contrato=" + contrato +
-                ", salario=" + salario +
-                ", tags=" + tags +
-                ", empresa=" + empresa +
-                ", statusVaga=" + statusVaga +
-                '}';
+        return titulo;
     }
 }

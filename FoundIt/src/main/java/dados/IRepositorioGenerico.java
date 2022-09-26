@@ -13,6 +13,6 @@ public interface IRepositorioGenerico<T> {
 
     void remover(T obj) throws ElementoNaoExisteException;
 
-    void atualizar(T newObj) throws ElementoNaoExisteException;
+    void atualizar(T oldObj, T newObj) throws ElementoNaoExisteException;
 
 }

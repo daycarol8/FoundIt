@@ -90,4 +90,9 @@ public class Pessoa extends Usuario {
         Pessoa pessoa = (Pessoa) o;
         return cpf == pessoa.cpf && Objects.equals(nome, pessoa.nome) && Objects.equals(resumo, pessoa.resumo) && Objects.equals(endereco, pessoa.endereco) && Objects.equals(telefone, pessoa.telefone) && Objects.equals(dataNascimento, pessoa.dataNascimento) && Objects.equals(curriculo, pessoa.curriculo);
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

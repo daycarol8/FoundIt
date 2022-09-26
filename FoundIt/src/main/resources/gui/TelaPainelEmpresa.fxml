@@ -19,36 +19,36 @@
       </Label>
       <ToolBar layoutY="-4.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #884DF2;">
         <items>
-          <Button fx:id="btnPe" mnemonicParsing="false" onAction="#mudarTelaTeste" prefHeight="12.0" prefWidth="48.0" text="Perfil ">
+          <Button fx:id="btnPe" mnemonicParsing="false" onAction="#mudarTelaPerfilEmpresa" prefHeight="12.0" prefWidth="48.0" text="Perfil ">
                <padding>
                   <Insets top="3.0" />
                </padding>
             </Button>
-            <Button fx:id="btnLo" mnemonicParsing="false" onAction="#mudarTelaTeste" prefHeight="19.0" prefWidth="46.0" text="LogOut" translateX="490.0">
+            <Button fx:id="btnLo" mnemonicParsing="false" onAction="#logOut" prefHeight="19.0" prefWidth="46.0" text="LogOut" translateX="490.0">
                <padding>
                   <Insets top="2.0" />
                </padding>
             </Button>
         </items>
       </ToolBar>
-      <Button fx:id="btnNew" layoutX="207.0" layoutY="298.0" mnemonicParsing="false" onAction="#mudarTelaTeste" prefHeight="25.0" prefWidth="186.0" text="Criar nova vaga" />
+      <Button fx:id="btnNew" layoutX="207.0" layoutY="334.0" mnemonicParsing="false" onAction="#mudarTelaCriarVaga" prefHeight="25.0" prefWidth="186.0" text="Criar nova vaga" />
       <Label layoutX="7.0" layoutY="116.0" prefHeight="35.0" prefWidth="111.0" text="Lista de vagas" textFill="#864df0">
          <font>
             <Font name="Franklin Gothic Medium" size="15.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="7.0" layoutY="151.0" pannable="true" prefHeight="133.0" prefWidth="589.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="7.0" layoutY="151.0" pannable="true" prefHeight="160.0" prefWidth="589.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="133.0" prefWidth="589.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="589.0">
                <children>
-                  <TableView fx:id="table" layoutX="-1.0" prefHeight="133.0" prefWidth="589.0">
+                  <TableView fx:id="table" layoutX="-1.0" prefHeight="160.0" prefWidth="589.0">
                     <columns>
-                        <TableColumn fx:id="nivel" prefWidth="70.0" text="Nível" />
+                        <TableColumn fx:id="nivel" prefWidth="68.0" text="Nível" />
                       <TableColumn fx:id="titulo" prefWidth="75.0" text="Título" />
-                      <TableColumn fx:id="descriçao" prefWidth="75.0" text="Descrição" />
-                        <TableColumn fx:id="local" prefWidth="75.0" text="Local" />
+                      <TableColumn fx:id="descriçao" editable="false" prefWidth="75.0" text="Descrição" />
+                        <TableColumn fx:id="local" prefWidth="65.0" text="Local" />
                         <TableColumn fx:id="contrato" prefWidth="75.0" text="Contrato" />
-                        <TableColumn fx:id="salario" prefWidth="55.0" text="Salário" />
+                        <TableColumn fx:id="salario" prefWidth="65.0" text="Salário" />
                         <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
                         <TableColumn fx:id="tecnologias" prefWidth="75.0" text="Tecnologias" />
                     </columns>

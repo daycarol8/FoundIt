@@ -1,7 +1,6 @@
 package gui;
 
 import Exceptions.ElementoJaExisteException;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,15 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.InputEvent;
 import javafx.stage.Stage;
 import models.Empresa;
 import models.PorteEmpresa;
-import negocio.ControladorEmpresa;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class TelaCadastroEmpresaController implements Initializable {

@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Pessoa;
-import negocio.ControladorPessoa;
 
 import java.io.IOException;
 import java.net.URL;

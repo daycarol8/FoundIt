@@ -8,21 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import models.*;
 import negocio.ControladorCandidatura;
-import negocio.ControladorPessoa;
+import negocio.ControladorSessao;
 import negocio.ControladorVaga;
 
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TelaVisualizarVagaController implements Initializable {
@@ -75,43 +69,44 @@ public class TelaVisualizarVagaController implements Initializable {
     private Label tituloVaga;
 
     ControladorCandidatura controladorCandidatura = ControladorCandidatura.getInstance();
+    ControladorSessao controladorSessao = ControladorSessao.getInstance();
     ControladorVaga controladorVaga = ControladorVaga.getInstance();
 
-    ArrayList<Tecnologias> tec = new ArrayList<>();
-    Empresa e1 = new Empresa("google@gmail.com", "senha123", "Google", "12.345.678/0001-90", 88276597, "Rua Cristovão Colombo", "Empresa com anos de experiência no mercado :)", PorteEmpresa.GRANDE);
-    Vaga v1 = controladorVaga.getSelectedVaga();
-    Pessoa p1 = new Pessoa("camilealheiro@gmail.com", "camile123", "Camile Alheiro", 123456789,"Desenvolvedora Júnior", "Olinda, Rio Doce, 534", "81 94002-8922", LocalDate.of(2003, 3, 12));
+    Vaga vaga = controladorVaga.getSelectedVaga();
+
+    Pessoa pessoaLogada = (Pessoa) controladorSessao.getUsuarioLogado();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        statusVaga.setText("Status - " + v1.getStatusVaga().toString());
-        tituloVaga.setText(v1.getTitulo());
+        statusVaga.setText("Status - " + vaga.getStatusVaga().toString());
+        tituloVaga.setText(vaga.getTitulo());
 
-        descricaoTeste.setText(v1.getDescricao());
+        descricaoTeste.setText(vaga.getDescricao());
         descricaoTeste.setEditable(false);
         descricaoTeste.setWrapText(true);
 
-        areaInfEmpresa.setText(v1.getEmpresa().getNomeSocial() + "\n" + v1.getEmpresa().getCnpj() + "\n" + v1.getEmpresa().getDescricao() + "\n" +
-                v1.getEmpresa().getTelefone() + "\n" + v1.getEmpresa().getEndereco());
+        areaInfEmpresa.setText(vaga.getEmpresa().getNomeSocial() + "\n" + vaga.getEmpresa().getCnpj() + "\n" + vaga.getEmpresa().getDescricao() + "\n" +
+                vaga.getEmpresa().getTelefone() + "\n" + vaga.getEmpresa().getEndereco());
         areaInfEmpresa.setEditable(false);
         areaInfEmpresa.setWrapText(true);
 
-        areaInfLocal.setText(v1.getLocal());
+        areaInfLocal.setText(vaga.getLocal());
         areaInfLocal.setEditable(false);
 
-        areaInfNivel.setText(v1.getNivel());
+        areaInfNivel.setText(vaga.getNivel());
         areaInfNivel.setEditable(false);
 
-        areaInfSalario.setText(String.valueOf(v1.getSalario()));
+        areaInfSalario.setText(String.valueOf(vaga.getSalario()));
         areaInfSalario.setEditable(false);
 
-        areaInfContrato.setText("Tipo de contrato: " + v1.getContrato().toString());
+        areaInfContrato.setText("Tipo de contrato: " + vaga.getContrato().toString());
         areaInfContrato.setEditable(false);
 
         System.out.println("ja candidato?");
-        System.out.println(controladorCandidatura.verificarPessoaJaCandidata(v1,p1));
-        System.out.println(controladorCandidatura.listarCandidaturasPorVaga(v1));
-        if(controladorCandidatura.verificarPessoaJaCandidata(v1, p1) == true) {
+        System.out.println(controladorCandidatura.verificarPessoaJaCandidata(vaga,pessoaLogada));
+        System.out.println(controladorCandidatura.listarCandidaturasPorVaga(vaga));
+        if(controladorCandidatura.verificarPessoaJaCandidata(vaga, pessoaLogada) == true) {
             botaoQueroCandidatar.setDisable(true);
         }
     }
@@ -119,7 +114,7 @@ public class TelaVisualizarVagaController implements Initializable {
     @FXML
     public void candidatarVaga(ActionEvent event) throws ElementoJaExisteException {
         try {
-            controladorCandidatura.candidatarVaga(p1, v1);
+            controladorCandidatura.candidatarVaga(pessoaLogada, vaga);
             botaoQueroCandidatar.setDisable(true);
         } catch (ElementoJaExisteException e) {
             System.out.println("Você já se candidatou!");

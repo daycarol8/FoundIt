@@ -59,7 +59,7 @@ public class ControladorUsuario {
         repositorioUsuario.remover(obj);
     }
 
-    public void atualizar(Usuario newObj) throws ElementoNaoExisteException {
-        repositorioUsuario.atualizar(newObj);
+    public void atualizar(Usuario oldObj, Usuario newObj) throws ElementoNaoExisteException {
+        repositorioUsuario.atualizar(oldObj, newObj);
     }
 }

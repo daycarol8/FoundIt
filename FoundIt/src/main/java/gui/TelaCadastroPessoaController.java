@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Pessoa;
-import negocio.ControladorPessoa;
 
 import java.io.IOException;
 import java.net.URL;

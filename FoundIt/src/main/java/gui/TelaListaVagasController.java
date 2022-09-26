@@ -4,11 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -16,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.*;
+import negocio.ControladorSessao;
 import negocio.ControladorVaga;
 
 import java.io.IOException;
@@ -45,10 +48,19 @@ public class TelaListaVagasController implements Initializable {
     @FXML
     TextField filterField;
 
+    @FXML
+    Button perfilButton;
 
+    @FXML
+    Button logoutButton;
+
+    ControladorSessao controladorSessao = ControladorSessao.getInstance();
     ControladorVaga controladorVaga = ControladorVaga.getInstance();
 
     ObservableList<Vaga> vagas = FXCollections.observableArrayList();
+
+    Stage stage;
+    Parent root;
 
     @FXML
     public void handleClick(MouseEvent event) throws IOException {
@@ -57,15 +69,35 @@ public class TelaListaVagasController implements Initializable {
             controladorVaga.setSelectedVaga(p.getSelectedItem());
             System.out.println(controladorVaga.getSelectedVaga());
 
-            Stage stage;
-            Parent root;
-
             stage = (Stage) vagasTable.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("TelaVisualizarVaga.fxml"));
+            stage.setTitle("Vaga");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
+    }
+
+
+    @FXML
+    void logoutAction(ActionEvent event) throws IOException {
+        stage = (Stage) logoutButton.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
+        controladorSessao.setUsuarioLogado(null);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Login");
+        stage.show();
+    }
+
+    @FXML
+    void perfilAction(ActionEvent event) throws IOException {
+        stage = (Stage) perfilButton.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("TelaPerfilEmpresa.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Perfil");
+        stage.show();
     }
 
 
@@ -79,7 +111,7 @@ public class TelaListaVagasController implements Initializable {
 
         tituloColumn.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         nivelColumn.setCellValueFactory(new PropertyValueFactory<>("nivel"));
-       tecnologiasColumn.setCellValueFactory(new PropertyValueFactory<>("tags"));
+        tecnologiasColumn.setCellValueFactory(new PropertyValueFactory<>("tags"));
         contratoColumn.setCellValueFactory(new PropertyValueFactory<>("contrato"));
         empresaColumn.setCellValueFactory(new PropertyValueFactory<>("empresa"));
         localColumn.setCellValueFactory(new PropertyValueFactory<>("local"));

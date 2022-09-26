@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Pessoa;
+import negocio.ControladorUsuario;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +39,7 @@ public class TelaCadastroPessoaController implements Initializable {
     private Scene scene;
 
 
-    ControladorPessoa controladorPessoa = MainLaunch.controlPessoa;
+    ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
 
 
     @FXML
@@ -105,7 +106,7 @@ public class TelaCadastroPessoaController implements Initializable {
 
             System.out.println(pess);
             try {
-                controladorPessoa.inserir(pess);
+                controladorUsuario.inserir(pess);
             } catch (ElementoJaExisteException e) {
                 System.out.println("Pessoa já existente");
                 Alert alerta = new Alert(Alert.AlertType.ERROR);

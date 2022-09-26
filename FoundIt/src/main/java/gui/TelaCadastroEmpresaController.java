@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Empresa;
 import models.PorteEmpresa;
+import negocio.ControladorUsuario;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,8 +34,8 @@ public class TelaCadastroEmpresaController implements Initializable {
     private boolean confirmarClicado = false;
     private Empresa empresa;
 
+    ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
 
-    ControladorEmpresa controladorEmpresa = MainLaunch.controlEmpresa;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -64,7 +65,7 @@ public class TelaCadastroEmpresaController implements Initializable {
 
             System.out.println(empre);
             try {
-                controladorEmpresa.inserir(empre);
+                controladorUsuario.inserir(empre);
             } catch (ElementoJaExisteException e) {
                 System.out.println("Empresa já existente");
                 Alert alerta = new Alert(Alert.AlertType.ERROR);

@@ -68,7 +68,7 @@
       <ToolBar prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #884DF2;">
          <items>
             <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarListadeVagas" text="Voltar" />
-            <Button fx:id="botaoEditar" mnemonicParsing="false" text="Editar" />
+            <Button fx:id="botaoEditar" mnemonicParsing="false" onAction="#editarVaga" text="Editar" />
          </items>
       </ToolBar>
       <Button fx:id="botaoQueroCandidatar" layoutX="229.0" layoutY="258.0" mnemonicParsing="false" onAction="#candidatarVaga" text="Quero me candidatar :D" />

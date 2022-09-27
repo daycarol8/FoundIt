@@ -39,21 +39,6 @@ public class TelaVisualizarVagaController implements Initializable {
     private Button botaoEditar;
 
     @FXML
-    private Tab botaoInfContrato;
-
-    @FXML
-    private Tab botaoInfEmpresa;
-
-    @FXML
-    private Tab botaoInfLocal;
-
-    @FXML
-    private Tab botaoInfNivel;
-
-    @FXML
-    private Tab botaoInfSalario;
-
-    @FXML
     private Button botaoQueroCandidatar;
 
     @FXML
@@ -74,41 +59,78 @@ public class TelaVisualizarVagaController implements Initializable {
 
     Vaga vaga = controladorVaga.getSelectedVaga();
 
-    Pessoa pessoaLogada = (Pessoa) controladorSessao.getUsuarioLogado();
+    Usuario usuarioLogado = (Empresa) controladorSessao.getUsuarioLogado();
+    Pessoa pessoaLogada;
+    Empresa empresaLogada;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        statusVaga.setText("Status - " + vaga.getStatusVaga().toString());
-        tituloVaga.setText(vaga.getTitulo());
+        if(usuarioLogado instanceof Pessoa) {
+            pessoaLogada = (Pessoa) controladorSessao.getUsuarioLogado();
+            statusVaga.setText("Status - " + vaga.getStatusVaga().toString());
+            tituloVaga.setText(vaga.getTitulo());
 
-        descricaoTeste.setText(vaga.getDescricao());
-        descricaoTeste.setEditable(false);
-        descricaoTeste.setWrapText(true);
+            descricaoTeste.setText(vaga.getDescricao());
+            descricaoTeste.setEditable(false);
+            descricaoTeste.setWrapText(true);
 
-        areaInfEmpresa.setText(vaga.getEmpresa().getNomeSocial() + "\n" + vaga.getEmpresa().getCnpj() + "\n" + vaga.getEmpresa().getDescricao() + "\n" +
-                vaga.getEmpresa().getTelefone() + "\n" + vaga.getEmpresa().getEndereco());
-        areaInfEmpresa.setEditable(false);
-        areaInfEmpresa.setWrapText(true);
+            areaInfEmpresa.setText(vaga.getEmpresa().getNomeSocial() + "\n" + vaga.getEmpresa().getCnpj() + "\n" + vaga.getEmpresa().getDescricao() + "\n" +
+                    vaga.getEmpresa().getTelefone() + "\n" + vaga.getEmpresa().getEndereco());
+            areaInfEmpresa.setEditable(false);
+            areaInfEmpresa.setWrapText(true);
 
-        areaInfLocal.setText(vaga.getLocal());
-        areaInfLocal.setEditable(false);
+            areaInfLocal.setText(vaga.getLocal());
+            areaInfLocal.setEditable(false);
 
-        areaInfNivel.setText(vaga.getNivel());
-        areaInfNivel.setEditable(false);
+            areaInfNivel.setText(vaga.getNivel());
+            areaInfNivel.setEditable(false);
 
-        areaInfSalario.setText(String.valueOf(vaga.getSalario()));
-        areaInfSalario.setEditable(false);
+            areaInfSalario.setText(String.valueOf(vaga.getSalario()));
+            areaInfSalario.setEditable(false);
 
-        areaInfContrato.setText("Tipo de contrato: " + vaga.getContrato().toString());
-        areaInfContrato.setEditable(false);
+            areaInfContrato.setText("Tipo de contrato: " + vaga.getContrato().toString());
+            areaInfContrato.setEditable(false);
 
-        System.out.println("ja candidato?");
-        System.out.println(controladorCandidatura.verificarPessoaJaCandidata(vaga,pessoaLogada));
-        System.out.println(controladorCandidatura.listarCandidaturasPorVaga(vaga));
-        if(controladorCandidatura.verificarPessoaJaCandidata(vaga, pessoaLogada) == true) {
-            botaoQueroCandidatar.setDisable(true);
+            System.out.println("ja candidato?");
+            System.out.println(controladorCandidatura.verificarPessoaJaCandidata(vaga,pessoaLogada));
+            System.out.println(controladorCandidatura.listarCandidaturasPorVaga(vaga));
+            if(controladorCandidatura.verificarPessoaJaCandidata(vaga, pessoaLogada) == true) {
+                botaoQueroCandidatar.setDisable(true);
+            }
+
+            botaoEditar.setVisible(false);
+
+        } else {
+            empresaLogada = (Empresa) controladorSessao.getUsuarioLogado();
+            statusVaga.setText("Status - " + vaga.getStatusVaga().toString());
+            tituloVaga.setText(vaga.getTitulo());
+
+            descricaoTeste.setText(vaga.getDescricao());
+            descricaoTeste.setEditable(false);
+            descricaoTeste.setWrapText(true);
+
+            areaInfEmpresa.setText(vaga.getEmpresa().getNomeSocial() + "\n" + vaga.getEmpresa().getCnpj() + "\n" + vaga.getEmpresa().getDescricao() + "\n" +
+                    vaga.getEmpresa().getTelefone() + "\n" + vaga.getEmpresa().getEndereco());
+            areaInfEmpresa.setEditable(false);
+            areaInfEmpresa.setWrapText(true);
+
+            areaInfLocal.setText(vaga.getLocal());
+            areaInfLocal.setEditable(false);
+
+            areaInfNivel.setText(vaga.getNivel());
+            areaInfNivel.setEditable(false);
+
+            areaInfSalario.setText(String.valueOf(vaga.getSalario()));
+            areaInfSalario.setEditable(false);
+
+            areaInfContrato.setText("Tipo de contrato: " + vaga.getContrato().toString());
+            areaInfContrato.setEditable(false);
+
+            botaoQueroCandidatar.setVisible(false);
+
         }
+
     }
 
     @FXML
@@ -139,5 +161,15 @@ public class TelaVisualizarVagaController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void editarVaga(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
 
+        stage = (Stage) botaoEditar.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("TelaEditarVaga.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

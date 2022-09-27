@@ -17,7 +17,7 @@ public class MainLaunch extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaLogin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainLaunch.class.getResource("TelaVisualizarVaga.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
 

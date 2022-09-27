@@ -63,6 +63,10 @@ public class Vaga implements Serializable {
         return salario;
     }
 
+    public String toStringSalario() {
+        return "" + salario;
+    }
+
     public void setSalario(double salario) {
         this.salario = salario;
     }

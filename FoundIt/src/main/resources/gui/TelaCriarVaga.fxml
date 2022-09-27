@@ -32,9 +32,9 @@
       <TextField fx:id="criarvagaStatus" layoutX="236.0" layoutY="138.0" prefHeight="31.0" prefWidth="143.0" />
       <TextField fx:id="criarvagaTecnologia" layoutX="404.0" layoutY="138.0" prefHeight="31.0" prefWidth="143.0" />
       <ButtonBar prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: #884DF2;">
-        <buttons>
-          <Button fx:id="buttonVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" translateX="-515.0" />
-        </buttons>
+         <buttons>
+            <Button fx:id="buttonVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" translateX="-515.0" />
+         </buttons>
       </ButtonBar>
       <TextField fx:id="criarvagaLocal" layoutX="336.0" layoutY="261.0" prefHeight="31.0" prefWidth="209.0" />
       <Label layoutX="336.0" layoutY="240.0" prefHeight="0.0" prefWidth="45.0" text="Local" />

@@ -5,11 +5,12 @@ import Exceptions.ElementoNaoExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import models.Candidatura;
+import models.Tecnologias;
 
 import java.util.List;
 
 public class ControladorTecnologias {
-    private IRepositorioGenerico<Candidatura> repositorioTecnologias;
+    private IRepositorioGenerico<Tecnologias> repositorioTecnologias;
 
     private static ControladorTecnologias instance;
 
@@ -24,19 +25,19 @@ public class ControladorTecnologias {
         return instance;
     }
 
-    public void inserir(Candidatura obj) throws ElementoJaExisteException {
+    public void inserir(Tecnologias obj) throws ElementoJaExisteException {
         repositorioTecnologias.inserir(obj);
     }
 
-    public List<Candidatura> listar() {
+    public List<Tecnologias> listar() {
         return repositorioTecnologias.listar();
     }
 
-    public void remover(Candidatura obj) throws ElementoNaoExisteException {
+    public void remover(Tecnologias obj) throws ElementoNaoExisteException {
         repositorioTecnologias.remover(obj);
     }
 
-    public void atualizar(Candidatura oldObj, Candidatura newObj) throws ElementoNaoExisteException {
+    public void atualizar(Tecnologias oldObj, Tecnologias newObj) throws ElementoNaoExisteException {
         repositorioTecnologias.atualizar(oldObj, newObj);
     }
 }

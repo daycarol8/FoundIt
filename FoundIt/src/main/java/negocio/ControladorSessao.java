@@ -35,7 +35,7 @@ public class ControladorSessao {
             }
         }
 
-        if(usuario ==null){
+        if(usuario == null){
             throw new CredenciaisErradas(usuario);
         } else{
             setUsuarioLogado(usuario);

@@ -5,14 +5,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Empresa;
 import models.PorteEmpresa;
 import negocio.ControladorUsuario;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,6 +35,8 @@ public class TelaCadastroEmpresaController implements Initializable {
     @FXML private Button BotaoCancelar;
 
     private Stage dialogStage;
+
+    private Scene scene;
     private boolean confirmarClicado = false;
     private Empresa empresa;
 
@@ -45,8 +51,16 @@ public class TelaCadastroEmpresaController implements Initializable {
         EscolhaPorte.setValue(porteLista.get(0));
     }
 
+    public void voltar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaLogin.fxml"));
+        dialogStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+    }
+
     @FXML
-    public void confirmacao(ActionEvent ev) {
+    public void confirmacao(ActionEvent ev) throws IOException {
 
         if(validarDados()) {
 
@@ -77,7 +91,7 @@ public class TelaCadastroEmpresaController implements Initializable {
             }
 
 
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Empresa Cadastrada");
             alerta.setHeaderText("Empresa Cadastrada!");
             alerta.setContentText("Parabéns! Sua Empresa foi cadastrada com sucesso!");
@@ -85,8 +99,10 @@ public class TelaCadastroEmpresaController implements Initializable {
             final Node source = (Node) ev.getSource();
             final Stage stage = (Stage) source.getScene().getWindow();
             stage.close();
+
+            voltar(ev);
+
             confirmarClicado = true;
-            //dialogStage.close();
         }
     }
 
@@ -101,6 +117,7 @@ public class TelaCadastroEmpresaController implements Initializable {
         System.out.println(s.matches("^\\d+$"));
         return s.matches("^\\d+$");
     }
+
     private boolean validarDados() {
         String erro = "";
 
@@ -150,12 +167,5 @@ public class TelaCadastroEmpresaController implements Initializable {
         this.confirmarClicado = confirmarClicado;
     }
 
-//    public Empresa getEmpresa() {
-//        return empresa;
-//    }
-//
-//    public void setEmpresa(Empresa empresa) {
-//        this.empresa = empresa;
-//    }
 
 }

@@ -12,8 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCriarVagaController">
    <children>
-      <Button fx:id="buttonCriarVaga" layoutX="335.0" layoutY="319.0" mnemonicParsing="false" onAction="#criarVaga" prefHeight="41.0" prefWidth="92.0" text="Criar Vaga" />
-      <Button fx:id="buttonVerVaga" layoutX="456.0" layoutY="319.0" mnemonicParsing="false" onAction="#verVaga" prefHeight="41.0" prefWidth="92.0" text="Ver vagas" />
+      <Button fx:id="buttonCriarVaga" layoutX="397.0" layoutY="319.0" mnemonicParsing="false" onAction="#criarVaga" prefHeight="41.0" prefWidth="92.0" text="Criar Vaga" />
       <Label layoutX="240.0" layoutY="70.0" text="Criar Vaga" textFill="#884df2">
          <font>
             <Font size="20.0" />

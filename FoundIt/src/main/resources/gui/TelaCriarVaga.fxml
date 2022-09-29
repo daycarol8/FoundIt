@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ChoiceBox?>
+<?import org.controlsfx.control.CheckComboBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCriarVagaController">
    <children>
       <Button fx:id="buttonCriarVaga" layoutX="335.0" layoutY="319.0" mnemonicParsing="false" onAction="#CriarVaga" prefHeight="41.0" prefWidth="92.0" text="Criar Vaga" />
@@ -25,12 +27,13 @@
       <Label layoutX="47.0" layoutY="180.0" text="Nível" />
       <TextField fx:id="criarvagaNivel" layoutX="47.0" layoutY="200.0" prefHeight="31.0" prefWidth="161.0" />
       <Label layoutX="236.0" layoutY="180.0" text="Contrato" />
-      <TextField fx:id="criarvagaContrato" layoutX="236.0" layoutY="200.0" prefHeight="31.0" prefWidth="143.0" />
+      <ChoiceBox fx:id="criarvagaContrato" layoutX="236.0" layoutY="200.0" prefHeight="31.0" prefWidth="143.0" />
       <Label layoutX="407.0" layoutY="180.0" text="Salário" />
       <TextField fx:id="criarvagaSalario" layoutX="405.0" layoutY="200.0" prefHeight="31.0" prefWidth="143.0" />
       <Label layoutX="405.0" layoutY="117.0" text="Tecnologia" />
-      <TextField fx:id="criarvagaStatus" layoutX="236.0" layoutY="138.0" prefHeight="31.0" prefWidth="143.0" />
-      <TextField fx:id="criarvagaTecnologia" layoutX="404.0" layoutY="138.0" prefHeight="31.0" prefWidth="143.0" />
+      <ChoiceBox fx:id="criarvagaStatus" layoutX="236.0" layoutY="138.0" prefHeight="31.0" prefWidth="143.0" />
+     //criarvagaTecnologia
+
       <ButtonBar prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: #884DF2;">
          <buttons>
             <Button fx:id="buttonVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" translateX="-515.0" />

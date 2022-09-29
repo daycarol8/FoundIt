@@ -1,15 +1,23 @@
 package gui;
 
+import Exceptions.ElementoNaoExisteException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Empresa;
+import models.Pessoa;
+import models.PorteEmpresa;
+import models.Tecnologias;
+import negocio.ControladorSessao;
+import negocio.ControladorUsuario;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,25 +47,26 @@ public class TelaPerfilEmpresaController implements Initializable{
     private TextField empresaCNPJPerfil;
 
     @FXML
-    private TextField empresaPorteDaEmpresaPerfil;
+    private ChoiceBox<PorteEmpresa> empresaPorteDaEmpresaPerfil;
 
     @FXML
     private Button empresaEditarPerfil;
 
     @FXML
-    private Button empresaPainelEmpresaPerfil;
-    @FXML
     private TextArea empresaDescricaoPerfil;
 
     private Stage dialogStage;
-
-    private Empresa empresa;
 
     private boolean editar = false;
 
     private Stage stage;
 
     private Scene scene;
+
+    ControladorSessao controlSessao = ControladorSessao.getInstance();
+    ControladorUsuario controlPerfil = ControladorUsuario.getInstance();
+
+    Empresa empresa = (Empresa) controlSessao.getUsuarioLogado();
 
     @FXML
 
@@ -66,7 +75,24 @@ public class TelaPerfilEmpresaController implements Initializable{
         return s.matches("^\\d+$");
     }
 
-    private void Salvar(){
+    private void Salvar() throws ElementoNaoExisteException {
+
+        String nomeEmpre = empresaNomePerfil.getText();
+        String emailEmpre = empresaEmailPerfil.getText();
+        String senhaEmpre = empresaSenhaPerfil.getText();
+        String cnpjEmpre = empresaCNPJPerfil.getText();
+        String enderecoEmpre = empresaEnderecoPerfil.getText();
+        String descricaoEmpre = empresaDescricaoPerfil.getText();
+        PorteEmpresa porteEmpre = empresaPorteDaEmpresaPerfil.getSelectionModel().getSelectedItem();
+        long telefoneEmpre = (long) Integer.parseInt(empresaTelefonePerfil.getText());
+
+        System.out.println(empresa);
+
+        Empresa sameEmpresa = new Empresa(emailEmpre, senhaEmpre, nomeEmpre, cnpjEmpre, telefoneEmpre, enderecoEmpre, descricaoEmpre, porteEmpre);
+
+        controlPerfil.atualizar(empresa, sameEmpresa);
+
+        controlSessao.setUsuarioLogado(sameEmpresa);
 
     }
 
@@ -103,9 +129,15 @@ public class TelaPerfilEmpresaController implements Initializable{
     }
 
     @FXML
-    private void EditarDados(ActionEvent e) throws IOException {
+    private void EditarDados(ActionEvent e) throws IOException, ElementoNaoExisteException {
+
+        ObservableList<PorteEmpresa> porteLista = FXCollections.observableArrayList();
+        empresaPorteDaEmpresaPerfil.setItems(porteLista);
+        porteLista.addAll(PorteEmpresa.values());
+        empresaPorteDaEmpresaPerfil.setValue(porteLista.get(0));
 
         if (editar && verificar()) {
+
             empresaNomePerfil.setEditable(false);
             empresaEmailPerfil.setEditable(false);
             empresaEnderecoPerfil.setEditable(false);
@@ -113,7 +145,7 @@ public class TelaPerfilEmpresaController implements Initializable{
             empresaTelefonePerfil.setEditable(false);
             empresaDescricaoPerfil.setEditable(false);
             empresaCNPJPerfil.setEditable(false);
-            empresaPorteDaEmpresaPerfil.setEditable(false);
+
 
             editar = false;
             empresaEditarPerfil.setText("Editar");
@@ -127,7 +159,7 @@ public class TelaPerfilEmpresaController implements Initializable{
             empresaTelefonePerfil.setEditable(true);
             empresaDescricaoPerfil.setEditable(true);
             empresaCNPJPerfil.setEditable(true);
-            empresaPorteDaEmpresaPerfil.setEditable(true);
+
 
             editar = true;
             empresaEditarPerfil.setText("Salvar");
@@ -135,7 +167,7 @@ public class TelaPerfilEmpresaController implements Initializable{
     }
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1){
+    public void initialize(URL url, ResourceBundle resourceBundle){
 
         empresaNomePerfil.setEditable(false);
         empresaEmailPerfil.setEditable(false);
@@ -144,26 +176,26 @@ public class TelaPerfilEmpresaController implements Initializable{
         empresaTelefonePerfil.setEditable(false);
         empresaDescricaoPerfil.setEditable(false);
         empresaCNPJPerfil.setEditable(false);
-        empresaPorteDaEmpresaPerfil.setEditable(false);
+        empresaPorteDaEmpresaPerfil.getSelectionModel().getSelectedItem();
 
-        empresaNomePerfil.setText("arg0");
-        empresaEmailPerfil.setText("arg1");
-        empresaEnderecoPerfil.setText("arg2");
-        empresaSenhaPerfil.setText("arg3");
-        empresaTelefonePerfil.setText("arg4");
-        empresaDescricaoPerfil.setText("arg5");
-        empresaCNPJPerfil.setText("arg6");
-        empresaPorteDaEmpresaPerfil.setText("arg7");
-
-    }
-    @FXML
-    void AvancaPainelEmpresa(ActionEvent event) {
+        empresaNomePerfil.setText(empresa.getNomeSocial());
+        empresaEmailPerfil.setText(empresa.getEmail());
+        empresaCNPJPerfil.setText(empresa.getCnpj());
+        empresaDescricaoPerfil.setText(empresa.getDescricao());
+        empresaEnderecoPerfil.setText(empresa.getEndereco());
+        empresaTelefonePerfil.setText(String.valueOf(empresa.getTelefone()));
+        empresaSenhaPerfil.setText(empresa.getSenha());
+        empresaPorteDaEmpresaPerfil.setValue(empresa.getTamanhoEmpresa());
 
     }
 
     @FXML
-    void Voltar(ActionEvent event) {
-
+    void Voltar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPainelEmpresa.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

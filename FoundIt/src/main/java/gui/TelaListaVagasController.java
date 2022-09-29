@@ -93,7 +93,7 @@ public class TelaListaVagasController implements Initializable {
     @FXML
     void perfilAction(ActionEvent event) throws IOException {
         stage = (Stage) perfilButton.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("TelaPerfilEmpresa.fxml"));
+        root = FXMLLoader.load(getClass().getResource("TelaPerfilPessoa.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Perfil");

@@ -98,7 +98,7 @@ public class TelaLoginController {
             if(controladorSessao.getUsuarioLogado() instanceof Pessoa){
                 root = FXMLLoader.load(getClass().getResource("TelaListaVagas.fxml"));
             } else{
-                root = FXMLLoader.load(getClass().getResource("TelaPerfilEmpresa.fxml"));
+                root = FXMLLoader.load(getClass().getResource("TelaPainelEmpresa.fxml"));
             }
 
             stage = (Stage) buttonCadastraPessoa.getScene().getWindow();

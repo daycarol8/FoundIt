@@ -59,7 +59,7 @@ public class TelaVisualizarVagaController implements Initializable {
 
     Vaga vaga = controladorVaga.getSelectedVaga();
 
-    Usuario usuarioLogado = (Empresa) controladorSessao.getUsuarioLogado();
+    Usuario usuarioLogado = controladorSessao.getUsuarioLogado();
     Pessoa pessoaLogada;
     Empresa empresaLogada;
 

@@ -16,6 +16,7 @@
       <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #884DF2;" BorderPane.alignment="CENTER">
         <items>
             <Button fx:id="botaoVoltar" blendMode="LIGHTEN" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
+            <Button fx:id="botaoCandidaturas" blendMode="LIGHTEN" mnemonicParsing="false" onAction="#irCandidaturas" text="Candidaturas" />
         </items>
       </ToolBar>
    </top>

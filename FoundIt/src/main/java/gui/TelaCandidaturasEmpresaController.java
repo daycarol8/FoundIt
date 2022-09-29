@@ -101,10 +101,10 @@ public class TelaCandidaturasEmpresaController implements Initializable {
         Parent root;
 
         stage = (Stage) voltarButton.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("TelaPerfilEmpresa.fxml"));
+        root = FXMLLoader.load(getClass().getResource("TelaPainelEmpresa.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Perfil");
+        stage.setTitle("Painel Empresa");
         stage.show();
     }
 

@@ -120,7 +120,7 @@ public class TelaCadastroPessoaController implements Initializable {
             }
 
 
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Pessoa Cadastrada");
             alerta.setHeaderText("Pessoa Cadastrada!");
             alerta.setContentText("Parabéns! Você foi cadastrado com sucesso!");

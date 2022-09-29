@@ -103,7 +103,7 @@ public class TelaCadastroEmpresaController implements Initializable {
 //
 //            voltar(ev);
 
-            Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPerfilEmpresa.fxml"));
+            Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaLogin.fxml"));
             stage = (Stage) ((Node)ev.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

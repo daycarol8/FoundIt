@@ -119,7 +119,7 @@ public class TelaEditarVagaController implements Initializable {
             String descricaoVaga = editarDescricao.getText();
             String nivelVaga = editarNivel.getText();
             String localVaga = editarLocal.getText();
-            int salarioVaga = (int) Integer.parseInt(editarSalario.getText());
+            double salarioVaga = (double) Double.parseDouble(editarSalario.getText());
             TipoContrato contratoVaga = editarContrato.getSelectionModel().getSelectedItem();
 
             ObservableList<Tecnologias> tecnologiaVaga = editarTecnologias.getCheckModel().getCheckedItems();

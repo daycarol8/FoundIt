@@ -49,7 +49,7 @@ public class Empresa extends Usuario {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco() {
         this.endereco = endereco;
     }
 

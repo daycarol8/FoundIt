@@ -49,7 +49,7 @@ public class Empresa extends Usuario {
         return endereco;
     }
 
-    public void setEndereco() {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
@@ -79,7 +79,7 @@ public class Empresa extends Usuario {
     }
 
     @Override
-    public String toString(String endereco) {
+    public String toString() {
         return nomeSocial;
     }
 }

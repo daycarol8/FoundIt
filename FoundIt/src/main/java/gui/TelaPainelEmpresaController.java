@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import models.*;
@@ -90,6 +91,28 @@ public class TelaPainelEmpresaController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void candidaturas(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaCandidaturasEmpresa.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void viewVaga(MouseEvent event) throws IOException {
+        TableView.TableViewSelectionModel<Vaga> p = table.getSelectionModel();
+        Vaga vaga = p.getSelectedItem();
+
+        controladorVaga.setSelectedVaga(vaga);
+
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaEditarVaga.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

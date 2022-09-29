@@ -37,6 +37,7 @@ public class TelaCadastroEmpresaController implements Initializable {
     private Stage dialogStage;
 
     private Scene scene;
+    private Stage stage;
     private boolean confirmarClicado = false;
     private Empresa empresa;
 
@@ -96,21 +97,20 @@ public class TelaCadastroEmpresaController implements Initializable {
             alerta.setHeaderText("Empresa Cadastrada!");
             alerta.setContentText("Parabéns! Sua Empresa foi cadastrada com sucesso!");
             alerta.showAndWait();
-            final Node source = (Node) ev.getSource();
-            final Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
+//            final Node source = (Node) ev.getSource();
+//            final Stage stage = (Stage) source.getScene().getWindow();
+//            stage.close();
+//
+//            voltar(ev);
 
-            voltar(ev);
+            Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPerfilEmpresa.fxml"));
+            stage = (Stage) ((Node)ev.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
 
             confirmarClicado = true;
         }
-    }
-
-    @FXML
-    public void cancelamento(ActionEvent e) {
-        final Node source = (Node) e.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
     }
 
     private boolean soContemDigitos(String s) {

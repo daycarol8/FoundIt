@@ -42,8 +42,6 @@ public class TelaPerfilPessoaController implements Initializable {
     private Stage stage;
     private Scene scene;
 
-    //Pessoa pessoa = new Pessoa("pessoa@gmail.com", "12345", "Pessoa Sobrenome", 1234567, "Procuro emprego", "Alguma rua do Brasil", "345234", LocalDate.of(2000, 5, 13));
-
     ControladorSessao controlSessao = ControladorSessao.getInstance();
     ControladorUsuario controlPerfil = ControladorUsuario.getInstance();
 
@@ -79,6 +77,15 @@ public class TelaPerfilPessoaController implements Initializable {
 
     public Pessoa getPessoa() {
         return pessoa;
+    }
+
+    @FXML
+    public void irCandidaturas(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaCandidaturaUsuario.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

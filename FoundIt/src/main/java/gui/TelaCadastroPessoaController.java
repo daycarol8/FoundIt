@@ -43,10 +43,12 @@ public class TelaCadastroPessoaController implements Initializable {
 
 
     @FXML
-    public void cancelamento(ActionEvent e) {
-        final Node source = (Node) e.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+    public void cancelamento(ActionEvent e) throws IOException {
+        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaLogin.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private boolean soContemDigitos(String s) {
@@ -87,7 +89,7 @@ public class TelaCadastroPessoaController implements Initializable {
     }
 
     @FXML
-    public void confirmacao(ActionEvent ev) {
+    public void confirmacao(ActionEvent ev) throws IOException {
 
         if(validarDados()) {
 
@@ -123,25 +125,13 @@ public class TelaCadastroPessoaController implements Initializable {
             alerta.setHeaderText("Pessoa Cadastrada!");
             alerta.setContentText("Parabéns! Você foi cadastrado com sucesso!");
             alerta.showAndWait();
-            final Node source = (Node) ev.getSource();
-            final Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
-            confirmarClicado = true;
-            //dialogStage.close();
+
+            Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaLogin.fxml"));
+            stage = (Stage) ((Node)ev.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
-    }
-
-//    public void getDate(ActionEvent e) {
-//        LocalDate data = pickDataNascimento.getValue();
-//    }
-
-    @FXML
-    public void mudarTelaTeste(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPerfilPessoa.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @Override

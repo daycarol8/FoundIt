@@ -151,7 +151,7 @@ public class TelaEditarVagaController implements Initializable {
             Parent root;
 
             stage = (Stage) botaoVoltar.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("TelaVisualizarVaga.fxml"));
+            root = FXMLLoader.load(getClass().getResource("TelaPainelEmpresa.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -164,7 +164,7 @@ public class TelaEditarVagaController implements Initializable {
         Parent root;
 
         stage = (Stage) botaoVoltar.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("TelaVisualizarVaga.fxml"));
+        root = FXMLLoader.load(getClass().getResource("TelaPainelEmpresa.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

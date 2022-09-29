@@ -79,7 +79,7 @@ public class Empresa extends Usuario {
     }
 
     @Override
-    public String toString() {
+    public String toString(String endereco) {
         return nomeSocial;
     }
 }

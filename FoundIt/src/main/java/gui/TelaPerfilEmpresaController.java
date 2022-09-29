@@ -75,7 +75,7 @@ public class TelaPerfilEmpresaController implements Initializable{
         return s.matches("^\\d+$");
     }
 
-    private void Salvar() throws ElementoNaoExisteException {
+    private void salvar() throws ElementoNaoExisteException {
 
         String nomeEmpre = empresaNomePerfil.getText();
         String emailEmpre = empresaEmailPerfil.getText();
@@ -107,7 +107,7 @@ public class TelaPerfilEmpresaController implements Initializable{
                 erro += "Senha Inválida\n";
             if(empresaTelefonePerfil.getText() == null ||empresaTelefonePerfil.getText().length() == 0 )
                 erro += "Telefone Inválido!\n";
-            if(empresaCNPJPerfil.getText() == null || empresaCNPJPerfil.getText().length() == 0 || !soContemDigitos(empresaCNPJPerfil.getText()))
+            if(empresaCNPJPerfil.getText() == null || empresaCNPJPerfil.getText().length() == 0)
                 erro += "CNPJ Inválido!\n";
             if(empresaEnderecoPerfil.getText() == null || empresaEnderecoPerfil.getText().length() == 0)
                 erro += "Endereço Inválido!\n";
@@ -129,7 +129,7 @@ public class TelaPerfilEmpresaController implements Initializable{
     }
 
     @FXML
-    private void EditarDados(ActionEvent e) throws IOException, ElementoNaoExisteException {
+    private void editarDados(ActionEvent e) throws IOException, ElementoNaoExisteException {
 
         ObservableList<PorteEmpresa> porteLista = FXCollections.observableArrayList();
         empresaPorteDaEmpresaPerfil.setItems(porteLista);
@@ -149,7 +149,7 @@ public class TelaPerfilEmpresaController implements Initializable{
 
             editar = false;
             empresaEditarPerfil.setText("Editar");
-            Salvar();
+            salvar();
 
         } else {
             empresaNomePerfil.setEditable(true);
@@ -190,7 +190,7 @@ public class TelaPerfilEmpresaController implements Initializable{
     }
 
     @FXML
-    void Voltar(ActionEvent event) throws IOException {
+    void voltar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPainelEmpresa.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

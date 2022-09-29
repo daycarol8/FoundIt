@@ -2,6 +2,7 @@ package gui;
 
 import Exceptions.ElementoJaExisteException;
 import Exceptions.ElementoNaoExisteException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -83,6 +84,11 @@ public class TelaEditarVagaController implements Initializable {
         editarDescricao.setText(vaga.getDescricao());
         editarDescricao.setEditable(true);
         editarDescricao.setWrapText(true);
+
+        ObservableList<TipoContrato> contratoEditarLista = FXCollections.observableArrayList();
+        editarContrato.setItems(contratoEditarLista);
+        contratoEditarLista.addAll(TipoContrato.values());
+        editarContrato.setValue(contratoEditarLista.get(0));
     }
 
     private boolean validarDados() {

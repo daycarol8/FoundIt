@@ -1,5 +1,7 @@
 package gui;
 
+import Exceptions.ElementoJaExisteException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,7 +65,7 @@ public class TelaCriarVagaController implements Initializable {
     private Scene scene;
 
     @FXML
-    void VerVaga(ActionEvent event) throws IOException {
+    void verVaga(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaVisualizarVaga.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -72,7 +74,7 @@ public class TelaCriarVagaController implements Initializable {
     }
 
     @FXML
-    void Voltar(ActionEvent event) throws IOException {
+    void voltar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainLaunch.class.getResource("TelaPainelEmpresa.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -85,7 +87,7 @@ public class TelaCriarVagaController implements Initializable {
     ControladorTecnologias controladorTecnologias = ControladorTecnologias.getInstance();
     Empresa empresa = (Empresa) controlSessao.getUsuarioLogado();
 
-    private void Salvar(){
+    private void salvar() throws ElementoJaExisteException {
 
         String nomeVaga = criarvagaNome.getText();
         String nivelVaga = criarvagaNivel.getText();
@@ -100,6 +102,8 @@ public class TelaCriarVagaController implements Initializable {
         System.out.println(empresa);
 
         Vaga newVaga = new Vaga(nivelVaga, nomeVaga, descricaoVaga, localVaga, salarioVaga, listaVagaTecno, contratoVaga, empresa);
+
+        controlVaga.inserir(newVaga);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Vaga criada com sucesso!");
@@ -118,7 +122,7 @@ public class TelaCriarVagaController implements Initializable {
     private boolean verificar(){
         String erro = "";
 
-        if( criarvagaNome.getText() == null || criarvagaNome.getText().length() == 0)
+        if(criarvagaNome.getText() == null || criarvagaNome.getText().length() == 0)
             erro += "Nome Inválido!\n";
         if(criarvagaNivel.getText() == null || criarvagaNivel.getText().length() == 0)
             erro += "Nivel Inválido!\n";
@@ -143,14 +147,25 @@ public class TelaCriarVagaController implements Initializable {
     }
 
     @FXML
-    void CriarVaga(ActionEvent event) {
+    void criarVaga(ActionEvent event) throws ElementoJaExisteException {
         if(verificar() == true)
-            Salvar();
+            salvar();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         criarvagaTecnologia.getItems().addAll(controladorTecnologias.listar());
+        ObservableList<PorteEmpresa> porteLista = FXCollections.observableArrayList();
+
+        ObservableList<StatusVaga> statusLista = FXCollections.observableArrayList();
+        criarvagaStatus.setItems(statusLista);
+        statusLista.addAll(StatusVaga.values());
+        criarvagaStatus.setValue(statusLista.get(0));
+
+        ObservableList<TipoContrato> contratoLista = FXCollections.observableArrayList();
+        criarvagaContrato.setItems(contratoLista);
+        contratoLista.addAll(TipoContrato.values());
+        criarvagaContrato.setValue(contratoLista.get(0));
     }
 }
 
